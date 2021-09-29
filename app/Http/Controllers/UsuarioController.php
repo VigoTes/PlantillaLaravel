@@ -22,12 +22,12 @@ class UsuarioController extends Controller
         return view('Usuarios.Crear');
     }
 
-    public function editar($id){
+    public function Editar($id){
         $usuario=Usuario::findOrFail($id);
         return view('Usuarios.Editar',compact('usuario'));
     }
 
-    public function eliminar($id){
+    public function Eliminar($id){
         $usuario=User::findOrFail($id);
         $usuario->delete();
         return redirect()->route('Usuarios.Listar')
@@ -60,7 +60,7 @@ class UsuarioController extends Controller
         }
          
     }
-    public function update(Request $request){
+    public function Update(Request $request){
         try{
             DB::beginTransaction();
             

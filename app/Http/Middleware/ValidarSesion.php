@@ -17,11 +17,13 @@ class ValidarSesion
      */
     public function handle($request, Closure $next)
     {
-          
+        error_log('pasa');
+        
         if(is_null(Auth::id())){
             return redirect()->route('user.verLogin');
         }
 
+        
         
         return $next($request);
     }

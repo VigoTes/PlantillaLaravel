@@ -15,11 +15,20 @@ Route::post('/ingresar', 'UserController@logearse')->name('user.logearse'); //po
 Route::get('/cerrarSesion','UserController@cerrarSesion')->name('user.cerrarSesion');
 
 
+Route::group(['middleware'=>"ValidarSesion"],function()
+{
+    
+    Route::get('/Usuarios/Listar','UsuarioController@Listar')->name('Usuarios.Listar');
+
+    Route::get('/Usuarios/Crear','UsuarioController@Crear')->name('Usuarios.Crear');
+    Route::get('/Usuarios/{id}/Editar','UsuarioController@Editar')->name('Usuarios.Editar');
+    
+    Route::post('/Usuarios/Guardar','UsuarioController@Guardar')->name('Usuarios.Guardar');
+    Route::post('/Usuarios/Update','UsuarioController@Update')->name('Usuarios.Update');
+    
+    Route::get('/Usuarios/{id}/eliminar','UsuarioController@Eliminar')->name('Usuarios.Eliminar');
+    
+    
 
 
-Route::get('/Usuarios/Listar','UsuarioController@Listar')->name('Usuarios.Listar');
-
-Route::get('/Usuarios/Crear','UsuarioController@Crear')->name('Usuarios.Crear');
-Route::get('/Usuarios/Editar','UsuarioController@listar')->name('Usuarios.Editar');
-
-Route::post('/Usuarios/Guardar','UsuarioController@Guardar')->name('Usuarios.Guardar');
+});

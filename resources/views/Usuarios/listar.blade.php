@@ -67,7 +67,7 @@ codUsuarioAEliminar = 0;
         confirmarConMensaje("Confirmación","¿Desea eliminar el usuario?","warning",ejecutarEliminarUsuario);
     }
     function ejecutarEliminarUsuario(){
-        window.location.href='/Usuario/'+codUsuarioAEliminar+'/eliminar';
+        window.location.href='/Usuarios/'+codUsuarioAEliminar+'/eliminar';
     }
     
 </script>
